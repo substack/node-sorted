@@ -190,6 +190,12 @@ Sorted.prototype.insert = function (xs) {
     return this;
 };
 
+Sorted.prototype.range = function (a, b) {
+    var i = this.findIndex(a);
+    var j = this.findIndex(b);
+    return this.elements.slice(i, j + 1);
+};
+
 Sorted.prototype.get = function (i) {
     return this.elements[i];
 };
