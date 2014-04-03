@@ -1,34 +1,46 @@
 {
-    "name" : "sorted",
-    "version" : "0.0.0",
-    "description" : "sorted arrays",
-    "main" : "index.js",
-    "directories" : {
-        "lib" : ".",
-        "test" : "test"
-    },
-    "dependencies" : {},
-    "devDependencies" : {
-        "expresso" : "0.7.x"
-    },
-    "scripts" : {
-        "test" : "expresso"
-    },
-    "repository" : {
-        "type" : "git",
-        "url" : "http://github.com/substack/node-sorted.git"
-    },
-    "keywords" : [
-        "sort",
-        "array",
-        "in-place",
-        "order"
-    ],
-    "author" : {
-        "name" : "James Halliday",
-        "email" : "mail@substack.net",
-        "url" : "http://substack.net"
-    },
-    "license" : "MIT/X11",
-    "engine" : { "node" : ">=0.4" }
+  "name": "sorted",
+  "version": "0.0.0",
+  "description": "sorted arrays",
+  "main": "index.js",
+  "devDependencies": {
+    "tape": "~2.12.1"
+  },
+  "scripts": {
+    "test": "expresso"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/substack/node-sorted.git"
+  },
+  "keywords": [
+    "sort",
+    "array",
+    "in-place",
+    "order"
+  ],
+  "author": {
+    "name": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net"
+  },
+  "license": "MIT",
+  "testling": {
+    "files": "test/*.js",
+    "browsers": [
+      "ie/8..latest",
+      "firefox/15",
+      "firefox/latest",
+      "firefox/nightly",
+      "chrome/15",
+      "chrome/latest",
+      "chrome/canary",
+      "opera/12..latest",
+      "opera/next",
+      "safari/5.1..latest",
+      "ipad/6.0..latest",
+      "iphone/6.0..latest",
+      "android-browser/4.2..latest"
+    ]
+  }
 }

@@ -2,6 +2,10 @@
 
 A sorted array data structure
 
+[![testling badge](https://ci.testling.com/substack/node-sorted.png)](https://ci.testling.com/substack/node-sorted)
+
+[![build status](https://secure.travis-ci.org/substack/node-sorted.png)](http://travis-ci.org/substack/node-sorted)
+
 # example
 
 ## repl
