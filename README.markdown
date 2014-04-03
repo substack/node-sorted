@@ -132,6 +132,11 @@ s.pop()
 
 Return and remove the greatest item in the structure.
 
+s.range(a, b)
+-------------
+
+Return the range of all elements from `a` through `b`, inclusive.
+
 attributes
 ==========
 
