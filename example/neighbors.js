@@ -1,6 +1,6 @@
 var sorted = require('../');
 
-var xs = 'abcdefghijklmnop'.split('');
+var xs = 'bhdajemfcngiklop'.split('');
 var s = sorted(xs);
 var ix = s.findIndex('h');
 console.log('current:', s.get(ix));

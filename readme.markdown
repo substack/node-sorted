@@ -8,25 +8,30 @@ A sorted array data structure
 
 # example
 
-## repl
+## sorted
 
 ```
-> var sorted = require('sorted')
-> var xs = sorted([ 3, 1, 2, 0 ])
-> xs
+var sorted = require('sorted');
+var xs = sorted([ 3, 1, 2, 0 ]);
+console.log(xs);
+xs.push(2.5);
+console.log(xs);
+```
+
+output:
+
+```
 <Sorted [0,1,2,3]>
-> xs.push(2.5)
-5
-> xs
 <Sorted [0,1,2,2.5,3]>
 ```
+
 
 ## neighbors
 
 ``` js
 var sorted = require('sorted');
 
-var xs = 'abcdefghijklmnop'.split('');
+var xs = 'bhdajemfcngiklop'.split('');
 var s = sorted(xs);
 var ix = s.findIndex('h');
 console.log('current:', s.get(ix));
@@ -34,14 +39,28 @@ console.log('prev:', s.get(ix-1));
 console.log('next:', s.get(ix+1));
 ```
 
+output:
+
+```
+current: h
+prev: g
+next: i
+```
+
 ## range
 
 ``` js
 var sorted = require('sorted');
 
-var xs = 'abcdefghijklmnop'.split('');
+var xs = 'bhdajemfcngiklop'.split('');
 var s = sorted(xs);
 console.log(s.range('e', 'j').join(''));
+```
+
+output:
+
+```
+efghij
 ```
 
 # methods
