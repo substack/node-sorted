@@ -1,7 +1,7 @@
-var assert = require('assert');
+var test = require('tape');
 var sorted = require('../');
 
-exports.isSorted = function () {
+test('isSorted', function (assert) {
     assert.ok(sorted.isSorted([5,6,7]));
     assert.ok(sorted.isSorted([0,2,4,6]));
     assert.ok(sorted.isSorted([0,3,3,3]));
@@ -23,9 +23,10 @@ exports.isSorted = function () {
     assert.ok(!sorted.isSorted([3,1,2]));
     assert.ok(!sorted.isSorted([0,1,2,NaN]));
     assert.ok(!sorted.isSorted([NaN,0,1,2]));
-};
+    assert.end();
+});
 
-exports.random = function () {
+test('random', function (assert) {
     for (var i = 0; i < 100; i++) {
         var xs = sorted();
         for (var j = 0; j < 10; j++) {
@@ -35,18 +36,20 @@ exports.random = function () {
         assert.ok(sorted.isSorted(xs));
         assert.ok(sorted.isSorted(xs.toArray()));
     }
-};
+    assert.end();
+});
 
-exports.concat = function () {
+test('concat', function (assert) {
     assert.deepEqual(
         sorted([4,5,6]).concat(
             [2,3,4,5], 6, sorted([5,7,8,9]), sorted([21,22])
         ).toArray(),
         [ 2, 3, 4, 4, 5, 5, 5, 6, 6, 7, 8, 9, 21, 22 ]
     );
-};
+    assert.end();
+});
 
-exports.insertArray = function () {
+test('insertArray', function (assert) {
     var s0 = sorted([ 2, 5, 5, 9, 10, 13, 13, 15 ]);
     var s1 = sorted([]);
     var s2 = sorted([ 3 ]);
@@ -71,9 +74,10 @@ exports.insertArray = function () {
         s3.insert(xs);
         assert.ok(sorted.isSorted(s3.toArray()), s3.toArray());
     }
-};
+    assert.end();
+});
 
-exports.getSet = function () {
+test('getSet', function (assert) {
     var s = sorted([ 2, 5, 5, 9, 10, 13, 13, 15 ]);
     assert.equal(s.get(0), 2);
     assert.equal(s.get(1), 5);
@@ -87,9 +91,10 @@ exports.getSet = function () {
     s.set(2, 10);
     assert.equal(s.get(2), 9);
     assert.equal(s.get(3), 10);
-};
+    assert.end();
+});
 
-exports.slice = function () {
+test('slice', function (assert) {
     var xs = [ 1, 1, 2, 3, 5, 8, 13 ];
     var s = sorted(xs);
     
@@ -100,9 +105,10 @@ exports.slice = function () {
             assert.deepEqual(sliced, xs.slice(i,j));
         }
     }
-};
+    assert.end();
+});
 
-exports.map = function () {
+test('map', function (assert) {
     var xs = [ 1, 1, 2, 3, 5, 8, 13 ];
     var s = sorted(xs);
     var s_ = s.map(function (x) { return 15 - x });
@@ -114,9 +120,10 @@ exports.map = function () {
         s_.toArray(),
         xs.slice().reverse().map(function (x) { return 15 - x })
     );
-};
+    assert.end();
+});
 
-exports.filter = function () {
+test('filter', function (assert) {
     var xs = [ 1, 1, 2, 3, 5, 8, 13 ];
     var s = sorted(xs);
     var s_ = s.filter(function (x) { return x % 2 === 0 });
@@ -125,9 +132,10 @@ exports.filter = function () {
     assert.deepEqual(xs, [ 1, 1, 2, 3, 5, 8, 13 ], 'xs was modified');
     assert.deepEqual(s.toArray(), xs, '.filter() modified the elements');
     assert.deepEqual(s_.toArray(), [ 2, 8 ]);
-};
+    assert.end();
+});
 
-exports.shiftPop = function () {
+test('shiftPop', function (assert) {
     var xs = [ 1, 1, 2, 3, 5, 8, 13 ];
     var s = sorted(xs);
     assert.equal(s.shift(), 1);
@@ -145,4 +153,5 @@ exports.shiftPop = function () {
     assert.deepEqual(s.toArray(), []);
     assert.ok(s.pop() === undefined);
     assert.deepEqual(s.toArray(), []);
-};
+    assert.end();
+});
