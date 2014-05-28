@@ -108,6 +108,12 @@ Remove `len` elements starting at index `i`.
 Any additional arguments will be pushed to the structure maintaining the sorted
 order.
 
+## s.remove(x, start=0, end=s.length)
+
+Remove the first occurance of element starting at index `start`, and
+ending at `end` using a binary search.
+
+
 ## s.findIndex(x, start=0, end=s.length)
 
 Search for the index of the value `x` starting at index `start` and ending at

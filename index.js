@@ -120,6 +120,12 @@ Sorted.prototype.findIndex = function (x, start, end) {
     return k;
 };
 
+Sorted.prototype.remove = function(x, start, end) {
+  var i = this.findIndex(x, start, end);
+  if (i != -1 ) this.splice(i, 1);
+  return this.elements;
+};
+
 Sorted.prototype.indexOf = function (x) {
     var i = this.findIndex(x);
     return this.elements[i] === x ? i : -1;

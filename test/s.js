@@ -108,6 +108,22 @@ test('slice', function (assert) {
     assert.end();
 });
 
+test('remove', function(assert) {
+    var xs = [ 1, 2, 3, 4, 5, 6, 7 ];
+    var s = sorted(xs);
+
+    var start_length = s.length;
+    s.remove(1);
+    assert.equal(s.length, start_length - 1);
+    assert.equal(s.indexOf(1), - 1);
+
+    assert.notEqual(s.indexOf(6), -1);
+    s.remove(6);
+    assert.equal(s.indexOf(6), -1);
+
+    assert.end();
+});
+
 test('map', function (assert) {
     var xs = [ 1, 1, 2, 3, 5, 8, 13 ];
     var s = sorted(xs);
